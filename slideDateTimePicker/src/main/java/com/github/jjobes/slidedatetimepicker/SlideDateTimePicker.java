@@ -26,6 +26,8 @@ public class SlideDateTimePicker {
     private Date mMaxDate;
     private boolean mIsClientSpecified24HourTime;
     private boolean mIs24HourTime;
+    private boolean mIsShowTimeTab;
+    private boolean mIsShowDateTab;
     private int mTheme;
     private int mIndicatorColor;
 
@@ -49,6 +51,13 @@ public class SlideDateTimePicker {
         mFragmentManager = fm;
     }
 
+    public void setIsShowTimeTab(boolean isShowTimeTab) {
+        mIsShowTimeTab = isShowTimeTab;
+    }
+
+    public void setIsShowDateTab(boolean isShowDateTab) {
+        mIsShowDateTab = isShowDateTab;
+    }
     /**
      * <p>Sets the listener that is used to inform the client when
      * the user selects a new date and time.</p>
@@ -162,6 +171,8 @@ public class SlideDateTimePicker {
                         mMaxDate,
                         mIsClientSpecified24HourTime,
                         mIs24HourTime,
+                        mIsShowDateTab,
+                        mIsShowTimeTab,
                         mTheme,
                         mIndicatorColor);
 
@@ -184,6 +195,8 @@ public class SlideDateTimePicker {
         private Date maxDate;
         private boolean isClientSpecified24HourTime;
         private boolean is24HourTime;
+        private boolean isShowTimeTab;
+        private boolean isShowDateTab;
         private int theme;
         private int indicatorColor;
 
@@ -248,6 +261,20 @@ public class SlideDateTimePicker {
             return this;
         }
 
+        public Builder setIsShowDateTab(boolean mIsShowDateTab) {
+            this.isShowDateTab = mIsShowDateTab;
+            return this;
+        }
+
+        /**
+         * @param mIsShowTimeTab
+         * @return
+         */
+        public Builder setIsShowTimeTab(boolean mIsShowTimeTab) {
+            this.isShowTimeTab = mIsShowTimeTab;
+            return this;
+        }
+
         /**
          * <p>Build and return a {@code SlideDateTimePicker} object based on the previously
          * supplied parameters.</p>
@@ -266,7 +293,8 @@ public class SlideDateTimePicker {
             picker.setIs24HourTime(is24HourTime);
             picker.setTheme(theme);
             picker.setIndicatorColor(indicatorColor);
-
+            picker.setIsShowDateTab(isShowDateTab);
+            picker.setIsShowTimeTab(isShowTimeTab);
             return picker;
         }
     }

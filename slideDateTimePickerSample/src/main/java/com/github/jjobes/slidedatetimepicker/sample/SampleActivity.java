@@ -21,7 +21,7 @@ import com.github.jjobes.slidedatetimepicker.SlideDateTimePicker;
  */
 @SuppressLint("SimpleDateFormat")
 public class SampleActivity extends FragmentActivity {
-    private SimpleDateFormat mFormatter = new SimpleDateFormat("MMMM dd yyyy hh:mm aa");
+    private SimpleDateFormat mFormatter = new SimpleDateFormat("yyyy-MM-dd");
     private Button mButton;
 
     private SlideDateTimeListener listener = new SlideDateTimeListener() {
@@ -55,6 +55,7 @@ public class SampleActivity extends FragmentActivity {
                 new SlideDateTimePicker.Builder(getSupportFragmentManager())
                         .setListener(listener)
                         .setInitialDate(new Date())
+                        .setIsShowDateTab(true)
                                 //.setMinDate(minDate)
                                 //.setMaxDate(maxDate)
                                 //.setIs24HourTime(true)
