@@ -18,35 +18,30 @@ import com.github.jjobes.slidedatetimepicker.SlideDateTimePicker;
  * Sample test class for SlideDateTimePicker.
  *
  * @author jjobes
- *
  */
 @SuppressLint("SimpleDateFormat")
-public class SampleActivity extends FragmentActivity
-{
+public class SampleActivity extends FragmentActivity {
     private SimpleDateFormat mFormatter = new SimpleDateFormat("MMMM dd yyyy hh:mm aa");
     private Button mButton;
 
     private SlideDateTimeListener listener = new SlideDateTimeListener() {
 
         @Override
-        public void onDateTimeSet(Date date)
-        {
+        public void onDateTimeSet(Date date) {
             Toast.makeText(SampleActivity.this,
                     mFormatter.format(date), Toast.LENGTH_SHORT).show();
         }
 
         // Optional cancel listener
         @Override
-        public void onDateTimeCancel()
-        {
+        public void onDateTimeCancel() {
             Toast.makeText(SampleActivity.this,
                     "Canceled", Toast.LENGTH_SHORT).show();
         }
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_sample);
@@ -56,18 +51,17 @@ public class SampleActivity extends FragmentActivity
         mButton.setOnClickListener(new OnClickListener() {
 
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 new SlideDateTimePicker.Builder(getSupportFragmentManager())
-                    .setListener(listener)
-                    .setInitialDate(new Date())
-                    //.setMinDate(minDate)
-                    //.setMaxDate(maxDate)
-                    //.setIs24HourTime(true)
-                    //.setTheme(SlideDateTimePicker.HOLO_DARK)
-                    //.setIndicatorColor(Color.parseColor("#990000"))
-                    .build()
-                    .show();
+                        .setListener(listener)
+                        .setInitialDate(new Date())
+                                //.setMinDate(minDate)
+                                //.setMaxDate(maxDate)
+                                //.setIs24HourTime(true)
+                                //.setTheme(SlideDateTimePicker.HOLO_DARK)
+                                //.setIndicatorColor(Color.parseColor("#990000"))
+                        .build()
+                        .show();
             }
         });
     }
